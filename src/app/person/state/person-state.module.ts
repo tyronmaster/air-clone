@@ -1,18 +1,20 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { StoreModule } from '@ngrx/store';
 import * as fromPerson from './person.reducer';
 import { EffectsModule } from '@ngrx/effects';
 import { PersonEffects } from './person.effects';
+import { reducer } from './person.reducer';
+import { PersonFacade } from './persons.facade';
+import { PersonStorageModule } from '../storage/person-storage.module';
 
 
 
 @NgModule({
-  declarations: [],
   imports: [
-    CommonModule,
-    StoreModule.forFeature(fromPerson.personsFeatureKey, fromPerson.reducer),
+    PersonStorageModule,
+    StoreModule.forFeature(fromPerson.PERSON_FEATURE_KEY, reducer),
     EffectsModule.forFeature([PersonEffects])
-  ]
+  ],
+  providers: [PersonFacade]
 })
 export class PersonStateModule { }
