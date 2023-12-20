@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { PersonDto, PersonEntity } from '../common/person.interface.ts';
+import { PersonDto, PersonEntity } from '../common/person.interface';
 import { LocalStorage } from 'src/app/core/storage/storages/local.storage.js';
 import { Observable, map } from 'rxjs';
 import { PERSONS_DTO_STUB } from './person.stub.js';
@@ -51,7 +51,7 @@ export class PersonStorage {
     this.localStorage.setItem(PERSON_STORAGE_KEY, []);
   }
 
-  get(): Observable<PersonDto[]> {
+  get(): Observable<PersonEntity[]> {
     return this.localStorage
       .getItem<PersonDto[] | null>(PERSON_STORAGE_KEY)
       .pipe(map((persons) => (persons ?? PERSONS_DTO_STUB).map(castPersonEntity)));

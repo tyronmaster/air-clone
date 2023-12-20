@@ -1,4 +1,4 @@
-import { PersonDto } from "../common/person.interface.ts";
+import { PersonDto } from "../common/person.interface";
 
 export const PERSONS_DTO_STUB: PersonDto[] = [
   {
