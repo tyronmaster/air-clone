@@ -9,11 +9,11 @@ export class LoggerService {
   }
 
   error<T = any>(payload: T): void {
-    console.error(payload);
+    console.log(payload);
   }
 
   info<T = any>(payload: T): void {
     // eslint-disable-next-line no-console
-    console.info(payload);
+    console.log(payload);
   }
 }

@@ -58,7 +58,7 @@ export abstract class AbstractStorage implements AsyncStorage {
     try {
       this.storage.setItem(this.key, JSON.stringify(state));
     } catch (error) {
-      console.error(error);
+      console.log(error);
     }
   }
 
