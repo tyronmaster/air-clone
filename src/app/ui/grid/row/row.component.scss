@@ -1,0 +1,17 @@
+@import '../../../../stylesheets/utils.scss';
+
+:host {
+  display: block;
+
+  @each $breakpoint, $width in $grid-breakpoints {
+    @include media-breakpoint-up($breakpoint) {
+      &.row-#{$breakpoint} {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        height: 100%;
+        margin: 0 -1rem;
+      }
+    }
+  }
+}

@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { PersonDto, PersonEntity } from '../common/person.interface';
-import { LocalStorage } from 'src/app/core/storage/storages/local.storage.js';
+import { LocalStorage } from 'src/app/core/storage/storages/local.storage';
 import { Observable, map } from 'rxjs';
-import { PERSONS_DTO_STUB } from './person.stub.js';
+import { PERSONS_DTO_STUB } from './person.stub';
 
 const PERSON_STORAGE_KEY = 'person';
 

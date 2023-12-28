@@ -14,4 +14,4 @@ import { BuildingFacade } from './building.facade';
   ],
   providers: [BuildingFacade],
 })
-export class BuildingStateModuleModule {}
+export class BuildingStateModule {}

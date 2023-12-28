@@ -8,6 +8,7 @@ import { LayoutModule } from './ui/theme/layout/layout.module';
 import { RootStoreModule } from './core/store/root/root-store.module';
 import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
 import { AppLocaleModule } from './app-locale/app-locale.module';
+import { GoogleMapsSharedModule } from './maps/shared/google-maps-shared.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -20,6 +21,7 @@ import { AppLocaleModule } from './app-locale/app-locale.module';
     AppLocaleModule,
     HttpClientModule,
     HttpClientJsonpModule,
+    GoogleMapsSharedModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
