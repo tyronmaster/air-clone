@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { StoreModule } from '@ngrx/store';
-import * as fromBooking from './booking.reducer';
 import { EffectsModule } from '@ngrx/effects';
 import { BookingEffects } from './booking.effects';
-import { reducer } from './booking.reducer';
+import { BOOKING_FEATURE_KEY, reducer } from './booking.reducer';
+import { BookingFacade } from './booking.facade';
 
 @NgModule({
-  declarations: [],
-  imports: [StoreModule.forFeature(fromBooking.BOOKING_FEATURE_KEY, reducer), EffectsModule.forFeature([BookingEffects])],
+  imports: [StoreModule.forFeature(BOOKING_FEATURE_KEY, reducer), EffectsModule.forFeature([BookingEffects])],
+  providers: [BookingFacade],
 })
 export class BookingStateModule {}

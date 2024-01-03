@@ -1,0 +1,11 @@
+<div class="booking-list" *ngIf="bookingVariants$ | async as bookingVariants">
+  <ng-container *ngIf="bookingVariants.length">
+    <app-booking-portlet
+    automation-id="booking-list-portlet"
+    *ngFor="let bookingVariant of bookingVariants"
+      [bookingVariant]="bookingVariant"
+    ></app-booking-portlet>
+  </ng-container>
+
+  <p automation-id="booking-list-empty" *ngIf="!bookingVariants.length">Нет доступных отелей и апартаментов.</p>
+</div>

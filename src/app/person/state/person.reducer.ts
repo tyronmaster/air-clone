@@ -42,7 +42,7 @@ export const reducer = createReducer(
     personAdapter.setAll(payload, {
       ...state,
       personsLoadRun: false,
-    })
+    }),
   ),
   on(PersonActions.loadPersonsFailure, (state, { payload }) => ({
     ...state,
@@ -52,7 +52,7 @@ export const reducer = createReducer(
   on(PersonActions.clearPersons, (state) =>
     personAdapter.removeAll({
       ...state,
-    })
+    }),
   ),
   on(PersonActions.removePerson, (state, { payload }) =>
     personAdapter.updateOne(
@@ -62,8 +62,8 @@ export const reducer = createReducer(
           personRemoveRun: true,
         },
       },
-      state
-    )
+      state,
+    ),
   ),
   on(PersonActions.removePersonSuccess, (state, { payload }) => personAdapter.removeOne(payload.id, state)),
   on(PersonActions.removePersonFailure, (state, { payload }) =>
@@ -75,8 +75,8 @@ export const reducer = createReducer(
           personRemoveRun: false,
         },
       },
-      state
-    )
+      state,
+    ),
   ),
   on(PersonActions.addPerson, (state) => ({
     ...state,
@@ -87,7 +87,7 @@ export const reducer = createReducer(
     personAdapter.addOne(payload, {
       ...state,
       personCreateRun: false,
-    })
+    }),
   ),
   on(PersonActions.addPersonFailure, (state, { payload }) => ({
     ...state,
@@ -102,8 +102,8 @@ export const reducer = createReducer(
           personChangeRun: true,
         },
       },
-      state
-    )
+      state,
+    ),
   ),
   on(PersonActions.changePersonSuccess, (state, { payload }) =>
     personAdapter.updateOne(
@@ -115,8 +115,8 @@ export const reducer = createReducer(
           personChangeRun: false,
         },
       },
-      state
-    )
+      state,
+    ),
   ),
   on(PersonActions.changePersonFailure, (state, { payload }) =>
     personAdapter.updateOne(
@@ -127,8 +127,8 @@ export const reducer = createReducer(
           personChangeRun: false,
         },
       },
-      state
-    )
+      state,
+    ),
   ),
   on(PersonActions.removePersonBuilding, (state, { payload }) =>
     personAdapter.updateOne(
@@ -138,8 +138,8 @@ export const reducer = createReducer(
           personBuildingRemoveRun: true,
         },
       },
-      state
-    )
+      state,
+    ),
   ),
   on(PersonActions.removePersonBuildingSuccess, (state, { payload }) =>
     personAdapter.updateOne(
@@ -150,8 +150,8 @@ export const reducer = createReducer(
           personBuildingRemoveRun: false,
         },
       },
-      state
-    )
+      state,
+    ),
   ),
   on(PersonActions.removePersonBuildingFailure, (state, { payload }) =>
     personAdapter.updateOne(
@@ -162,8 +162,8 @@ export const reducer = createReducer(
           personBuildingRemoveRun: false,
         },
       },
-      state
-    )
+      state,
+    ),
   ),
   on(PersonActions.clearPersonsBuildings, (state) => ({
     ...state,
@@ -174,7 +174,7 @@ export const reducer = createReducer(
     personAdapter.setAll(payload, {
       ...state,
       personBuildingsClearRun: false,
-    })
+    }),
   ),
   on(PersonActions.clearPersonsBuildingsFailure, (state, { payload }) => ({
     ...state,
@@ -189,8 +189,8 @@ export const reducer = createReducer(
           personBuildingAddRun: true,
         },
       },
-      state
-    )
+      state,
+    ),
   ),
   on(PersonActions.addPersonBuildingSuccess, (state, { payload }) =>
     personAdapter.updateOne(
@@ -201,8 +201,8 @@ export const reducer = createReducer(
           personBuildingAddRun: false,
         },
       },
-      state
-    )
+      state,
+    ),
   ),
   on(PersonActions.addPersonBuildingFailure, (state, { payload }) =>
     personAdapter.updateOne(
@@ -213,7 +213,7 @@ export const reducer = createReducer(
           personBuildingAddRun: false,
         },
       },
-      state
-    )
-  )
+      state,
+    ),
+  ),
 );

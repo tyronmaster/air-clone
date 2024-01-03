@@ -21,18 +21,21 @@ export class PersonFacade {
 
   personAdded$: Observable<Person> = this.actions.pipe(
     ofType(PersonActions.addPersonSuccess),
-    map((action) => action.payload)
+    map((action) => action.payload),
   );
 
   personChanged$ = this.actions.pipe(
     ofType(PersonActions.changePersonSuccess),
-    map((action) => action.payload)
+    map((action) => action.payload),
   );
 
   person$ = (id: number): Observable<Person | null> => this.store.pipe(select(PersonSelectors.selectPerson({ id })));
 
   // eslint-disable-next-line @typescript-eslint/member-ordering
-  constructor(private readonly actions: Actions, private readonly store: Store<PersonState>) {}
+  constructor(
+    private readonly actions: Actions,
+    private readonly store: Store<PersonState>,
+  ) {}
 
   clear(): void {
     this.dispatch(PersonActions.clearPersons());

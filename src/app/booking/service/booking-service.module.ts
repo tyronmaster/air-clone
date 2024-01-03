@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
+import { BookingService } from './booking.service';
 
 @NgModule({
-  providers: [BookingServiceModule],
+  providers: [BookingService],
 })
 export class BookingServiceModule {}

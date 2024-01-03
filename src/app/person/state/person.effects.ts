@@ -20,8 +20,8 @@ export class PersonEffects implements OnInitEffects {
         id: () => 'load-persons',
         run: () => this.personStorage.get().pipe(map((payload) => PersonActions.loadPersonsSuccess({ payload }))),
         onError: (action, payload) => PersonActions.loadPersonsFailure({ payload }),
-      })
-    )
+      }),
+    ),
   );
 
   addPerson$ = createEffect(() =>
@@ -32,8 +32,8 @@ export class PersonEffects implements OnInitEffects {
         id: () => 'add-person',
         run: (action, persons) => PersonActions.addPersonSuccess({ payload: createPersonFromNewPerson(persons ?? [], action.payload) }),
         onError: (action, payload) => PersonActions.addPersonFailure({ payload }),
-      })
-    )
+      }),
+    ),
   );
 
   removePerson$ = createEffect(() =>
@@ -48,8 +48,8 @@ export class PersonEffects implements OnInitEffects {
           return person ? PersonActions.removePersonSuccess({ payload: action.payload }) : PersonActions.removePersonCancel();
         },
         onError: (action, error) => PersonActions.removePersonFailure({ payload: { ...error, id: action.payload.id } }),
-      })
-    )
+      }),
+    ),
   );
 
   changePerson$ = createEffect(() =>
@@ -59,8 +59,8 @@ export class PersonEffects implements OnInitEffects {
         id: (action) => `change-person-${action.payload.id}`,
         run: (action) => PersonActions.changePersonSuccess({ payload: action.payload }),
         onError: (action, payload) => PersonActions.changePersonFailure({ payload }),
-      })
-    )
+      }),
+    ),
   );
 
   removePersonBuilding$ = createEffect(() =>
@@ -76,8 +76,8 @@ export class PersonEffects implements OnInitEffects {
           return PersonActions.removePersonBuildingSuccess({ payload: { id: action.payload.id, buildings } });
         },
         onError: (action, payload) => PersonActions.removePersonBuildingFailure({ payload: { ...payload, id: action.payload } }),
-      })
-    )
+      }),
+    ),
   );
 
   addPersonBuilding$ = createEffect(() =>
@@ -95,8 +95,8 @@ export class PersonEffects implements OnInitEffects {
           });
         },
         onError: (action, payload) => PersonActions.addPersonBuildingFailure({ payload: { ...payload, id: action.payload } }),
-      })
-    )
+      }),
+    ),
   );
 
   clearPersonsBuildings$ = createEffect(() =>
@@ -110,8 +110,8 @@ export class PersonEffects implements OnInitEffects {
             payload: persons?.map((person) => ({ ...person, buildings: [] })) ?? [],
           }),
         onError: (action, payload) => PersonActions.clearPersonsBuildingsFailure({ payload }),
-      })
-    )
+      }),
+    ),
   );
 
   localStorageSync$ = createEffect(() =>
@@ -122,7 +122,7 @@ export class PersonEffects implements OnInitEffects {
         PersonActions.removePersonBuildingSuccess,
         PersonActions.removePersonSuccess,
         PersonActions.changePersonSuccess,
-        PersonActions.clearPersonsBuildingsSuccess
+        PersonActions.clearPersonsBuildingsSuccess,
       ),
       withLatestFrom(this.store.pipe(select(PersonSelectors.selectPersons))),
       fetch({
@@ -132,15 +132,15 @@ export class PersonEffects implements OnInitEffects {
             this.personStorage.post(persons ?? []);
           }
         },
-      })
-    )
+      }),
+    ),
   );
 
   constructor(
     private readonly actions$: Actions,
     private readonly store: Store,
     private readonly personStorage: PersonStorage,
-    private readonly environmentService: EnvironmentService
+    private readonly environmentService: EnvironmentService,
   ) {}
 
   ngrxOnInitEffects(): Action {

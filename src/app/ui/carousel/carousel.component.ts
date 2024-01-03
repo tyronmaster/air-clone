@@ -17,7 +17,7 @@ export class CarouselComponent {
 
   @Output() selected = new EventEmitter<number>();
 
-  onCick(index: number): void {
+  onClick(index: number): void {
     this.selected.emit(index);
   }
 

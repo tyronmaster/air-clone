@@ -4,14 +4,17 @@ import { BookingPageComponent } from './booking-page.component';
 
 import { BookingPageRoutingModule } from './booking-page-routing.module';
 import { CommonModule } from '@angular/common';
-import { RoomStateModule } from 'src/app/room/state';
-import { RoomServiceModule } from 'src/app/room/service';
-import { BookingMapModule } from './components/booking-map/booking-map/booking-map.module';
+import { BookingMapModule } from './components/booking-map/booking-map.module';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { BookingServiceModule } from '../service';
 import { BookingStateModule } from '../state';
 import { AppCommonModule } from 'src/app/app-common/app-common.module';
+import { BookingListModule } from './components/booking-list/booking-list.module';
+import { GridModule } from 'src/app/ui/grid';
+import { BookingCardModule } from './components/booking-card/booking-card.module';
+import { BookingBoxModule } from './components/booking-box/booking-box.module';
+import { ContainerModule } from 'src/app/ui/container';
 
 @NgModule({
   declarations: [BookingPageComponent],
@@ -20,15 +23,15 @@ import { AppCommonModule } from 'src/app/app-common/app-common.module';
     BookingPageRoutingModule,
     AppCommonModule,
     BookingMapModule,
-    // BookingListModule,
-    // BookingCardModule,
-    // BookingBoxModule,
+    BookingListModule,
+    BookingCardModule,
+    BookingBoxModule,
     BookingServiceModule,
     BookingStateModule,
     MatIconModule,
     MatButtonModule,
-    // GridModule,
-    // ContainerModule,
+    GridModule,
+    ContainerModule,
   ],
   exports: [BookingPageRoutingModule],
 })

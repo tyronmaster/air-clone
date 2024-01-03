@@ -6,14 +6,8 @@ import { PERSON_FEATURE_KEY, reducer } from './person.reducer';
 import { PersonFacade } from './persons.facade';
 import { PersonStorageModule } from '../storage/person-storage.module';
 
-
-
 @NgModule({
-  imports: [
-    PersonStorageModule,
-    StoreModule.forFeature(PERSON_FEATURE_KEY, reducer),
-    EffectsModule.forFeature([PersonEffects])
-  ],
-  providers: [PersonFacade]
+  imports: [PersonStorageModule, StoreModule.forFeature(PERSON_FEATURE_KEY, reducer), EffectsModule.forFeature([PersonEffects])],
+  providers: [PersonFacade],
 })
-export class PersonStateModule { }
+export class PersonStateModule {}
