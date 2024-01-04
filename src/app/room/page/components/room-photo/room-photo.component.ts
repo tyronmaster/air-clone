@@ -4,6 +4,7 @@ import { Subject } from 'rxjs';
 import { takeUntil, tap } from 'rxjs/operators';
 import { MatDialog } from '@angular/material/dialog';
 import { GridBreakpointType, mediaBreakpointUp } from 'src/app/ui/theme/utils';
+import { RoomPhotosDialogComponent } from './room-photos-dialog/room-photos-dialog.component';
 
 @Component({
   selector: 'app-room-photo',

@@ -1,12 +1,9 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { RoomManager } from './room.manager';
 
 
 
 @NgModule({
-  declarations: [],
-  imports: [
-    CommonModule
-  ]
+  providers: [RoomManager],
 })
-export class RoomManagerModule { }
+export class RoomManagerModule {}
